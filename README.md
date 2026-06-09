@@ -70,7 +70,7 @@ Ambos utilizam motores 3D (Unity) para criar experiências imersivas – um foca
 ## 📊 Par 3: Dashboards
 **Repositório:** [MyDashboards](https://pedrobabau.github.io/MyDashboards/)
 
-### 📈 Projeto 3.1 – Dashboard Analytics A
+### 📈 Projeto 3.1 – Localização em Tempo Real
 | Campo | Descrição |
 |-------|-----------|
 | **Objetivo** | Visualização artística baseada na sua localização geográfica real. Um globo 3D interativo que reage a país, cidade, coordenadas e fuso horário. |
@@ -78,12 +78,12 @@ Ambos utilizam motores 3D (Unity) para criar experiências imersivas – um foca
 | **Funcionalidades** | - Informação de localização em tempo real <br>- Animação em WebGL <br>- Design responsivo e dark mode |
 | **Acesso** | [Dashboard 1](https://pedrobabau.github.io/MyDashboards/dashboard1/) |
 
-### 📉 Projeto 3.2 – Dashboard Analytics B
+### 📉 Projeto 3.2 – Avatar Aleatório
 | Campo | Descrição |
 |-------|-----------|
 | **Objetivo** | Explore dados de uma API gratuita (JSONPlaceholder). Carregue utilizadores aleatórios e interaja com o avatar: mude a cor e o tamanho em tempo real. |
 | **Tecnologias** | Chart.js, WebSockets (simulado), JavaScript |
-| **Funcionalidades** | - Randomizer de Utilizador <br>- Alertas visuais para thresholds <br>- Capacidade de alterar o estilo do avatar |
+| **Funcionalidades** | - Randomizer de Avatar <br>- Alertas visuais para thresholds <br>- Capacidade de alterar o estilo do avatar |
 | **Acesso** | [Dashboard 2](https://pedrobabau.github.io/MyDashboards/dashboard2/) |
 
 **Como se complementam:**  
@@ -94,7 +94,7 @@ Ambos exploram *visualização de dados* – um focado em informações em tempo
 ## 🥽 Par 4: AR & VR
 **Repositório:** [ProjetoARVR](https://pedrobabau.github.io/ProjetoARVR/)
 
-### 🕶️ Projeto 4.1 – NeonDex
+### 🕶️ Projeto 4.1 – Cuidar de Animais
 | Campo | Descrição |
 |-------|-----------|
 | **Objetivo** | Experiência de Realidade Aumentada baseada em marcador personalizado. Alimente e dê água a um animal 3D interativo. |
@@ -102,7 +102,7 @@ Ambos exploram *visualização de dados* – um focado em informações em tempo
 | **Funcionalidades** | - Deteção de marcadores <br>- Modelos 3D animados com efeitos <br>- Interação toque/clique |
 | **Acesso** | [Projeto ARVR Demo](https://pedrobabau.github.io/ProjetoARVR/AR/index.html) |
 
-### 🌌 Projeto 4.2 – CyberGallery
+### 🌌 Projeto 4.2 – Explorador de Gundam
 | Campo | Descrição |
 |-------|-----------|
 | **Objetivo** | Experiência de Realidade Virtual imersiva com cenários 360° e navegação por olhar (gaze). |
