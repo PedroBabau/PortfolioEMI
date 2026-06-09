@@ -20,7 +20,7 @@ Cada par possui:
 ---
 
 ## 📁 Par 1: Coding Interativo
-**Repositório:** [Coding_Interativo](https://pedrobabau.github.io/Coding_Interativo/)
+**Repositório:** [Coding_Interativo](https://github.com/PedroBabau/Coding_Interativo)
 
 ### 🎨 Projeto 1.1 – Particle Storm
 | Campo | Descrição |
@@ -44,7 +44,7 @@ Ambos exploram *multimédia interativa em tempo real* – um focado em simulaç�
 ---
 
 ## 🎮 Par 2: Experiências 3D
-**Repositório:** [Projeto_2_Experiencias_3D_Interativas_Unity](https://pedrobabau.github.io/Projeto_2_Experiencias_3D_Interativas_Unity/)
+**Repositório:** [Projeto_2_Experiencias_3D_Interativas_Unity](https://github.com/PedroBabau/Projeto_2_Experiencias_3D_Interativas_Unity)
 
 ### 🚀 Projeto 2.1 – Visualizador Orbital 3D
 | Campo | Descrição |
@@ -68,7 +68,7 @@ Ambos utilizam motores 3D (Unity) para criar experiências imersivas – um foca
 ---
 
 ## 📊 Par 3: Dashboards
-**Repositório:** [MyDashboards](https://pedrobabau.github.io/MyDashboards/)
+**Repositório:** [MyDashboards](https://github.com/PedroBabau/MyDashboards)
 
 ### 📈 Projeto 3.1 – GeoPulse
 | Campo | Descrição |
@@ -92,7 +92,7 @@ Ambos exploram *visualização de dados* – um focado em informações em tempo
 ---
 
 ## 🥽 Par 4: AR & VR
-**Repositório:** [ProjetoARVR](https://pedrobabau.github.io/ProjetoARVR/)
+**Repositório:** [ProjetoARVR](https://github.com/PedroBabau/ProjetoARVR)
 
 ### 🕶️ Projeto 4.1 – AR Animal Care
 | Campo | Descrição |
