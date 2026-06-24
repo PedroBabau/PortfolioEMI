@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>CyberPortfolio | Projetos em Pares</title>
-    <!-- Google Fonts: Fonte futurista e mono -->
+    <title>Gundam 00 Portfolio | EMI Projects</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (ícones) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -16,14 +16,15 @@
         }
 
         body {
-            background: radial-gradient(circle at 20% 30%, #0a0f1e, #03050b);
+            background: linear-gradient(145deg, #0a1628 0%, #0d1f3c 40%, #162d50 100%);
             font-family: 'Orbitron', 'Share Tech Mono', monospace;
-            color: #0ff;
+            color: #e8f0fe;
             overflow-x: hidden;
             padding-bottom: 50px;
+            min-height: 100vh;
         }
 
-        /* Efeito de scanline e ruído */
+        /* GN Particles effect */
         body::before {
             content: "";
             position: fixed;
@@ -31,11 +32,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.03) 0px, rgba(0, 255, 255, 0.03) 2px, transparent 2px, transparent 6px);
+            background-image: 
+                radial-gradient(2px 2px at 10% 20%, rgba(74, 158, 255, 0.15), transparent),
+                radial-gradient(2px 2px at 30% 60%, rgba(255, 178, 51, 0.10), transparent),
+                radial-gradient(3px 3px at 50% 10%, rgba(74, 158, 255, 0.08), transparent),
+                radial-gradient(2px 2px at 70% 80%, rgba(255, 178, 51, 0.12), transparent),
+                radial-gradient(3px 3px at 90% 40%, rgba(74, 158, 255, 0.06), transparent);
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
         }
 
+        /* Cockpit grid */
         body::after {
             content: "";
             position: fixed;
@@ -43,440 +50,455 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, transparent 40%, rgba(0, 255, 255, 0.02) 90%);
+            background-image: 
+                linear-gradient(rgba(74, 158, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 158, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
         }
 
-        /* Container principal */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
-        /* Header com neon glitch */
-        .glitch-header {
+        /* Header - GN Drive style */
+        .gundam-header {
             text-align: center;
-            margin-bottom: 3.5rem;
-            border-bottom: 2px solid #0ff;
+            margin-bottom: 3rem;
             padding-bottom: 1.5rem;
-            box-shadow: 0 10px 20px -10px rgba(0, 255, 255, 0.2);
+            border-bottom: 2px solid #4a9eff;
+            position: relative;
         }
 
-        .glitch {
-            font-size: 3.5rem;
+        .gundam-header::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffb233, transparent);
+            border-radius: 2px;
+        }
+
+        .title-main {
+            font-size: 3rem;
             font-weight: 800;
             text-transform: uppercase;
-            position: relative;
-            text-shadow: 0.05em 0 0 rgba(255, 0, 255, 0.7), -0.05em -0.025em 0 rgba(0, 255, 255, 0.7);
-            animation: glitch-shake 0.3s infinite alternate;
-            letter-spacing: 4px;
-        }
-
-        @keyframes glitch-shake {
-            0% { transform: translate(0); }
-            100% { transform: translate(-1px, 1px); }
-        }
-
-        .sub {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 1rem;
-            color: #8cf;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            border-left: 3px solid #0ff;
-            padding-left: 12px;
-            display: inline-block;
-        }
-
-        /* Grid de pares (cada card duplo) */
-        .pairs-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        /* Cada par (dupla de projetos) */
-        .pair-card {
-            background: rgba(10, 20, 35, 0.6);
-            backdrop-filter: blur(8px);
-            border: 1.5px solid #0ff;
-            border-radius: 32px;
-            padding: 1.8rem 1.5rem;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.05);
-            transition: 0.25s ease;
-        }
-
-        .pair-card:hover {
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-            border-color: #f0f;
-            transform: translateY(-3px);
-        }
-
-        /* Cabeçalho do par com ícone e botão repo do par */
-        .pair-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.8rem;
-            border-bottom: 1px dashed #0ff;
-            padding-bottom: 0.8rem;
-        }
-
-        .pair-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #0ff, #f0f);
+            letter-spacing: 6px;
+            background: linear-gradient(135deg, #4a9eff 0%, #ffb233 50%, #4a9eff 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            animation: gradientShift 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(74, 158, 255, 0.2);
         }
 
-        .pair-title i {
-            font-size: 2rem;
-            color: #0ff;
-            text-shadow: 0 0 5px #0ff;
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        .btn-repo-pair {
-            background: transparent;
-            border: 2px solid #0ff;
-            color: #0ff;
-            font-family: 'Orbitron', monospace;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 40px;
+        .title-sub {
+            font-family: 'Share Tech Mono', monospace;
             font-size: 0.9rem;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(4px);
+            color: #8ab8ff;
+            letter-spacing: 3px;
+            margin-top: 10px;
+            display: inline-block;
+            background: rgba(74, 158, 255, 0.08);
+            padding: 6px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(74, 158, 255, 0.2);
         }
 
-        .btn-repo-pair i {
-            font-size: 1.2rem;
+        .title-sub i {
+            color: #ffb233;
+            margin: 0 6px;
         }
 
-        .btn-repo-pair:hover {
-            background: #0ff;
-            color: #000;
-            box-shadow: 0 0 15px #0ff;
-            border-color: #0ff;
-            transform: scale(1.02);
-        }
-
-        /* Container dos dois projetos lado a lado */
-        .two-projects {
+        /* Stats bar */
+        .stats-bar {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
             justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0 2rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: #6a9acf;
         }
 
-        /* Cada projeto individual */
+        .stats-bar span {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(74, 158, 255, 0.1);
+        }
+
+        .stats-bar .num {
+            color: #ffb233;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        /* Grid de projetos - 4 colunas */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        /* Cada projeto - estilo Gundam Unit */
         .project-card {
-            flex: 1;
-            min-width: 240px;
-            background: rgba(0, 0, 0, 0.65);
-            border-radius: 24px;
+            background: rgba(13, 31, 60, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 1.5rem;
-            border: 1px solid #2af;
-            transition: 0.2s;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(74, 158, 255, 0.15);
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4a9eff, #ffb233, #4a9eff, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card:hover {
-            border-color: #f0f;
-            background: rgba(0, 20, 40, 0.8);
+            border-color: #ffb233;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(74, 158, 255, 0.12);
         }
 
-        .project-number {
+        /* Ícone do projeto */
+        .project-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-tag {
             font-family: 'Share Tech Mono', monospace;
-            font-size: 0.9rem;
-            color: #ff66cc;
-            letter-spacing: 1px;
-            background: rgba(255, 0, 255, 0.2);
+            font-size: 0.6rem;
+            color: #8ab8ff;
+            letter-spacing: 2px;
+            background: rgba(74, 158, 255, 0.08);
             display: inline-block;
-            padding: 4px 12px;
+            padding: 2px 12px;
             border-radius: 20px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(74, 158, 255, 0.1);
+            text-transform: uppercase;
+        }
+
+        .project-tag .accent {
+            color: #ffb233;
         }
 
         .project-name {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            word-break: break-word;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 3px cyan;
+            color: #e8f0fe;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         .project-desc {
             font-family: 'Share Tech Mono', monospace;
-            color: #bdf;
-            font-size: 0.85rem;
-            margin-bottom: 1.8rem;
-            line-height: 1.4;
-            min-height: 65px;
+            color: #8ab8ff;
+            font-size: 0.78rem;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+            flex: 1;
         }
 
-        .button-group {
+        .project-tech {
             display: flex;
-            gap: 1rem;
             flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .tech-badge {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.55rem;
+            padding: 2px 10px;
+            border-radius: 15px;
+            background: rgba(74, 158, 255, 0.06);
+            border: 1px solid rgba(74, 158, 255, 0.1);
+            color: #6a9acf;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tech-badge.gold {
+            border-color: rgba(255, 178, 51, 0.2);
+            color: #ffb233;
         }
 
         .btn-project {
             background: transparent;
-            border: 1.5px solid #0ff;
-            color: #0ff;
-            padding: 8px 16px;
-            border-radius: 30px;
+            border: 1.5px solid rgba(74, 158, 255, 0.3);
+            color: #8ab8ff;
+            padding: 8px 18px;
+            border-radius: 25px;
             font-family: 'Orbitron', monospace;
             font-weight: 500;
-            font-size: 0.75rem;
+            font-size: 0.6rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+            justify-content: center;
         }
 
         .btn-project i {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .btn-project:hover {
-            background: #0ff;
-            color: #000;
-            box-shadow: 0 0 10px #0ff;
+            background: rgba(74, 158, 255, 0.12);
+            border-color: #4a9eff;
+            color: #e8f0fe;
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.08);
         }
 
-        /* rodapé neon */
-        .footer-neon {
-            margin-top: 4rem;
+        .btn-project.primary {
+            border-color: #ffb233;
+            color: #ffb233;
+        }
+
+        .btn-project.primary:hover {
+            background: rgba(255, 178, 51, 0.1);
+            border-color: #ffb233;
+            color: #ffb233;
+            box-shadow: 0 0 20px rgba(255, 178, 51, 0.08);
+        }
+
+        .btn-project.repo-btn {
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #6a9acf;
+            font-size: 0.55rem;
+        }
+
+        .btn-project.repo-btn:hover {
+            border-color: #4a9eff;
+            color: #8ab8ff;
+        }
+
+        /* Rodapé */
+        .footer-gundam {
+            margin-top: 3rem;
             text-align: center;
-            font-size: 0.8rem;
-            color: #5cf;
-            border-top: 1px solid #0ff3;
-            padding-top: 1.8rem;
-            font-family: monospace;
+            font-size: 0.7rem;
+            color: #4a7a9f;
+            border-top: 1px solid rgba(74, 158, 255, 0.1);
+            padding-top: 2rem;
+            font-family: 'Share Tech Mono', monospace;
+            letter-spacing: 1px;
         }
 
-        /* responsividade */
-        @media (max-width: 780px) {
-            .glitch { font-size: 2.2rem; }
-            .pair-title { font-size: 1.4rem; }
-            .project-name { font-size: 1.3rem; }
+        .footer-gundam i {
+            color: #ffb233;
+        }
+
+        .footer-gundam .gn-particle {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #4a9eff, transparent);
+            border-radius: 50%;
+            margin: 0 6px;
+            animation: pulseParticle 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseParticle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title-main { font-size: 2rem; letter-spacing: 3px; }
             .container { padding: 1rem; }
-            .btn-repo-pair { padding: 6px 14px; font-size: 0.75rem; }
+            .projects-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .project-card { padding: 1.2rem; }
+            .project-name { font-size: 1.1rem; }
+            .stats-bar { gap: 0.8rem; font-size: 0.65rem; }
+            .stats-bar span { padding: 2px 10px; }
         }
 
-        /* pequenos detalhes cyberpunk */
-        .corner-glow {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(0,255,255,0.2) 0%, rgba(0,0,0,0) 80%);
-            pointer-events: none;
-            z-index: 0;
+        @media (max-width: 480px) {
+            .title-main { font-size: 1.4rem; letter-spacing: 2px; }
+            .title-sub { font-size: 0.6rem; padding: 4px 12px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-card { padding: 1rem; }
+            .stats-bar { flex-direction: column; align-items: center; gap: 0.4rem; }
         }
     </style>
 </head>
 <body>
-<div class="corner-glow"></div>
 <div class="container">
-    <div class="glitch-header">
-        <div class="glitch">PORTFOLIO EMI</div>
-        <div class="sub">&gt; 8 PROJETOS • 4 REPOSITÓRIOS PARES &lt;</div>
+    <!-- Header Gundam 00 -->
+    <div class="gundam-header">
+        <div class="title-main">PORTFOLIO EMI</div>
+        <div class="title-sub">
+            <i class="fas fa-cog fa-spin"></i> 
+            PROJETOS INDIVIDUAIS • GN DRIVE 
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
     </div>
 
-    <div class="pairs-grid" id="pairsContainer">
-        <!-- Os pares serão injetados via JS para fácil manutenção, mas com estrutura HTML semântica -->
+    <!-- Stats -->
+    <div class="stats-bar">
+        <span><span class="num">8</span> PROJETOS</span>
+        <span><span class="num">7</span> TECNOLOGIAS</span>
+        <span><span class="num">4</span> REPOSITÓRIOS</span>
+        <span><span class="num">4</span> ÁREAS</span>
     </div>
-    <div class="footer-neon">
-        <i class="fas fa-code-branch"></i> Projetos desenvolvidos no âmbito da Unidade Curricular Edições de Multimédia Interativas
+
+    <div class="projects-grid" id="projectsContainer">
+        <!-- Os projetos serão injetados via JS -->
+    </div>
+
+    <div class="footer-gundam">
+        <span class="gn-particle"></span>
+        <i class="fas fa-code-branch"></i> Projetos desenvolvidos no âmbito da UC Edições de Multimédia Interativas 
+        <span class="gn-particle"></span>
+        <br>
     </div>
 </div>
 
 <script>    
-    const portfolioData = [
+    const projectsData = [
+        // Par 1 - Coding Interativo
         {
-            pairId: 1,
-            pairName: "Coding Interativo",
-            repoUrl: "https://github.com/PedroBabau/Coding_Interativo",   // SUBSTITUIR PELO REPO REAL
-            projetos: [
-                {
-                    nome: "Particle Storm",
-                    descricao: "Efeitos de criação e manipulação de partículas",
-                    projectPageUrl: "https://pedrobabau.github.io/projeto1/index.html"
-                },
-                {
-                    nome: "Sound Painter",
-                    descricao: "Pintar visualmente utilizando input de áudio (microfone ou ficheiros).",
-                    projectPageUrl: "https://pedrobabau.github.io/projeto2/index.html"
-                }
-            ]
+            id: 1,
+            nome: "Particle Storm",
+            descricao: "Simulação de sistema de partículas com comportamento emergente e interação em tempo real.",
+            icon: "🌩️",
+            tag: "Coding Interativo",
+            tech: ["JavaScript", "Canvas", "WebGL"],
+            repoUrl: "https://github.com/PedroBabau/Coding_Interativo",
+            projectPageUrl: "https://pedrobabau.github.io/Coding_Interativo/projeto1/index.html"
         },
         {
-            pairId: 2,
-            pairName: "Experiências 3D",
+            id: 2,
+            nome: "Sound Painter",
+            descricao: "Pintura visual interativa utilizando input de áudio (microfone ou ficheiros).",
+            icon: "🎵",
+            tag: "Coding Interativo",
+            tech: ["Web Audio API", "Canvas", "JavaScript"],
+            repoUrl: "https://github.com/PedroBabau/Coding_Interativo",
+            projectPageUrl: "https://pedrobabau.github.io/Coding_Interativo/projeto2/index.html"
+        },
+        // Par 2 - Experiências 3D
+        {
+            id: 3,
+            nome: "Orbital Viewer 3D",
+            descricao: "Visualizador com câmera orbital controlada por Slider UI. Aproxima e afasta a câmara em torno do objeto 3D.",
+            icon: "🚀",
+            tag: "Experiências 3D",
+            tech: ["Unity", "WebGL", "C#"],
             repoUrl: "https://github.com/PedroBabau/Projeto_2_Experiencias_3D_Interativas_Unity",
-            projetos: [
-                {
-                    nome: "Visualizador Orbital 3D",
-                    descricao: "Observa a mudança de perspetiva para com uma nave",
-                    projectPageUrl: "https://pedrobpinheiro.itch.io/projeto-a-visualizador-orbital-3d"
-                },
-                {
-                    nome: "Realizador de Cinema",
-                    descricao: "Explora várias perspetivas de câmera numa cena de dança",
-                    projectPageUrl: "https://pedrobpinheiro.itch.io/projeto-b-realizador-de-cinema"
-                }
-            ]
+            projectPageUrl: "https://itch.io/embed-upload/18061663?color=333333"
         },
         {
-            pairId: 3,
-            pairName: "Dashboards",
-            repoUrl: "https://github.com/PedroBabau/MyDashboards/tree/main",
-            projetos: [
-                {
-                    nome: "GeoPulse",
-                    descricao: "Scanner de portas com interface gráfica futurista e análise de vulnerabilidades.",
-                    projectPageUrl: "https://pedrobabau.github.io/MyDashboards/dashboard1/"
-                },
-                {
-                    nome: "API Explorer",
-                    descricao: "Ferramenta de análise de sinais RFID para estudos de segurança.",
-                    projectPageUrl: "https://pedrobabau.github.io/MyDashboards/dashboard2/"
-                }
-            ]
+            id: 4,
+            nome: "Camera Director",
+            descricao: "Sistema de 4 câmeras cinematográficas com toggles, animação e personagem Mixamo.",
+            icon: "🎬",
+            tag: "Experiências 3D",
+            tech: ["Unity", "WebGL", "Cinemachine"],
+            repoUrl: "https://github.com/PedroBabau/Projeto_2_Experiencias_3D_Interativas_Unity",
+            projectPageUrl: "https://itch.io/embed-upload/18061855?color=333333"
+        },
+        // Par 3 - Dashboards
+        {
+            id: 5,
+            nome: "GeoPulse",
+            descricao: "Globo 3D interativo com localização geográfica em tempo real (país, cidade, IP, coordenadas).",
+            icon: "🌍",
+            tag: "Dashboards",
+            tech: ["p5.js", "JavaScript", "API"],
+            repoUrl: "https://github.com/PedroBabau/MyDashboards",
+            projectPageUrl: "https://pedrobabau.github.io/MyDashboards/dashboard1/"
         },
         {
-            pairId: 4,
-            pairName: "AR & VR",
+            id: 6,
+            nome: "API Explorer",
+            descricao: "Explorador de dados com avatar interativo, personalização visual e carregamento aleatório.",
+            icon: "🔌",
+            tag: "Dashboards",
+            tech: ["p5.js", "JavaScript", "JSONPlaceholder"],
+            repoUrl: "https://github.com/PedroBabau/MyDashboards",
+            projectPageUrl: "https://pedrobabau.github.io/MyDashboards/dashboard2/"
+        },
+        // Par 4 - AR & VR
+        {
+            id: 7,
+            nome: "AR Animal Care",
+            descricao: "Cuide de um gato 3D com Realidade Aumentada (marcadores BARCODE e HIRO com download).",
+            icon: "🐾",
+            tag: "AR & VR",
+            tech: ["A-Frame", "AR.js", "JavaScript"],
             repoUrl: "https://github.com/PedroBabau/ProjetoARVR",
-            projetos: [
-                {
-                    nome: "AR Animal Care",
-                    descricao: "Toma conta de animais virtuais com Realidade Aumentada",
-                    projectPageUrl: "https://pedrobabau.github.io/ProjetoARVR/AR/index.html"
-                },
-                {
-                    nome: "VR Gundam Hangar",
-                    descricao: "Explora o mundo com o teu RX-78-2",
-                    projectPageUrl: "https://pedrobabau.github.io/ProjetoARVR/VR/index.html"
-                }
-            ]
+            projectPageUrl: "https://pedrobabau.github.io/ProjetoARVR/AR/index.html"
+        },
+        {
+            id: 8,
+            nome: "VR Gundam Hangar",
+            descricao: "Explore cenários 360° com navegação por olhar (gaze) e modelo Gundam 3D animado.",
+            icon: "🤖",
+            tag: "AR & VR",
+            tech: ["A-Frame", "Three.js", "WebXR"],
+            repoUrl: "https://github.com/PedroBabau/ProjetoARVR",
+            projectPageUrl: "https://pedrobabau.github.io/ProjetoARVR/VR/index.html"
         }
     ];
 
-    // Função para abrir URL com segurança (target blank)
-    function openLink(url, labelForError = "repositório") {
+    function openLink(url, labelForError = "link") {
         if (!url || url === "#" || url === "") {
-            alert(`⚠️ Link do ${labelForError} não configurado. Substitua pelos URLs reais no código JavaScript.`);
+            alert(`⚠️ ${labelForError} não configurado. Substitua pelos URLs reais no código JavaScript.`);
             return;
         }
         window.open(url, "_blank", "noopener,noreferrer");
     }
 
-    // Gerar o HTML dinamicamente (cyberpunk vibe)
-    function buildPortfolio() {
-        const container = document.getElementById("pairsContainer");
-        if (!container) return;
-
-        let html = "";
-        portfolioData.forEach((pair, idx) => {
-            // Ícone aleatório mas único por par
-            const iconsPair = ["🧬", "⚡", "🔮", "🕹️"];
-            const pairIcon = iconsPair[idx % iconsPair.length];
-            
-            html += `
-                <div class="pair-card" data-pair-id="${pair.pairId}">
-                    <div class="pair-header">
-                        <div class="pair-title">
-                            <i class="fas fa-bolt"></i> 
-                            ${escapeHtml(pair.pairName)} 
-                            <span style="font-size: 1rem;">${pairIcon}</span>
-                        </div>
-                        <button class="btn-repo-pair" data-repo-url="${escapeHtml(pair.repoUrl)}" data-pair-index="${idx}">
-                            <i class="fab fa-github"></i> REPOSITÓRIO
-                        </button>
-                    </div>
-                    <div class="two-projects">
-            `;
-            
-            // Percorrer os 2 projetos do par
-            pair.projetos.forEach((proj, projIndex) => {
-                const projectNumber = projIndex + 1;
-                html += `
-                    <div class="project-card">
-                        <div class="project-number">
-                            <i class="fas fa-microchip"></i> PROJETO #${projectNumber}
-                        </div>
-                        <div class="project-name">${escapeHtml(proj.nome)}</div>
-                        <div class="project-desc">${escapeHtml(proj.descricao)}</div>
-                        <div class="button-group">
-                            <button class="btn-project project-page-btn" data-project-url="${escapeHtml(proj.projectPageUrl)}" data-pair="${pair.pairId}" data-proj-name="${escapeHtml(proj.nome)}">
-                                <i class="fas fa-external-link-alt"></i> PÁGINA DO PROJETO
-                            </button>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            html += `
-                    </div>
-                </div>
-            `;
-        });
-        
-        container.innerHTML = html;
-        
-        // Após injetar, adicionar os event listeners para todos os botões:
-        // 1. Botões de repositório do par
-        const repoPairBtns = document.querySelectorAll(".btn-repo-pair");
-        repoPairBtns.forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                const repoUrl = btn.getAttribute("data-repo-url");
-                if (repoUrl && repoUrl !== "#") {
-                    openLink(repoUrl, "repositório do par");
-                } else {
-                    alert("🔗 URL do repositório deste par não foi definida. Edite o array portfolioData com o link real do GitHub.");
-                }
-            });
-        });
-        
-        // 2. Botões de cada projeto (página do projeto no GitHub)
-        const projectPageBtns = document.querySelectorAll(".project-page-btn");
-        projectPageBtns.forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                const projectUrl = btn.getAttribute("data-project-url");
-                const projectName = btn.getAttribute("data-proj-name") || "projeto";
-                if (projectUrl && projectUrl !== "#" && projectUrl !== "") {
-                    openLink(projectUrl, `página do projeto ${projectName}`);
-                } else {
-                    alert(`⚠️ Link da página do projeto "${projectName}" não configurado. Edite o portfolioData com a URL correta.`);
-                }
-            });
-        });
-    }
-    
-    // Função auxiliar para evitar XSS (escape)
     function escapeHtml(str) {
         if (!str) return "";
         return str.replace(/[&<>]/g, function(m) {
@@ -484,35 +506,65 @@
             if (m === '<') return '&lt;';
             if (m === '>') return '&gt;';
             return m;
-        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-            return c;
+        });
+    }
+
+    function buildProjects() {
+        const container = document.getElementById("projectsContainer");
+        if (!container) return;
+
+        let html = "";
+        projectsData.forEach((proj) => {
+            // Gerar badges de tecnologia
+            let techHtml = proj.tech.map(t => 
+                `<span class="tech-badge">${escapeHtml(t)}</span>`
+            ).join('');
+
+            html += `
+                <div class="project-card" data-id="${proj.id}">
+                    <div class="project-icon">${proj.icon}</div>
+                    <div class="project-tag">
+                        <span class="accent">✦</span> ${escapeHtml(proj.tag)}
+                    </div>
+                    <div class="project-name">${escapeHtml(proj.nome)}</div>
+                    <div class="project-desc">${escapeHtml(proj.descricao)}</div>
+                    <div class="project-tech">${techHtml}</div>
+                    <button class="btn-project primary project-page-btn" data-project-url="${escapeHtml(proj.projectPageUrl)}" data-proj-name="${escapeHtml(proj.nome)}">
+                        <i class="fas fa-external-link-alt"></i> PÁGINA DO PROJETO
+                    </button>
+                    <button class="btn-project repo-btn repo-btn-individual" data-repo-url="${escapeHtml(proj.repoUrl)}" style="margin-top:6px;">
+                        <i class="fab fa-github"></i> REPOSITÓRIO
+                    </button>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+        
+        // Event listeners para botões de página do projeto
+        document.querySelectorAll(".project-page-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const projectUrl = btn.getAttribute("data-project-url");
+                const projectName = btn.getAttribute("data-proj-name") || "projeto";
+                openLink(projectUrl, `página do projeto ${projectName}`);
+            });
+        });
+
+        // Event listeners para botões de repositório
+        document.querySelectorAll(".repo-btn-individual").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const repoUrl = btn.getAttribute("data-repo-url");
+                openLink(repoUrl, "repositório");
+            });
         });
     }
     
-    // Carregar e também caso queira incluir um exemplo de fallback para links não configurados
     window.addEventListener("DOMContentLoaded", () => {
-        buildPortfolio();
-        
-        // Adicionar efeito de console cyberpunk
-        console.log("%c⚡ CYBERPORTFOLIO CARREGADO | 8 PROJETOS | 4 PARES", "color: #0ff; font-size: 16px; font-family: monospace;");
-        console.log("%cCertifique-se de trocar os URLs de exemplo pelos links reais do GitHub.", "color: #fa0; font-size: 12px;");
-        
-        // Pequeno aviso flutuante para desenvolvedor (suave)
-        const devNote = document.createElement('div');
-        devNote.style.position = 'fixed';
-        devNote.style.bottom = '10px';
-        devNote.style.left = '10px';
-        devNote.style.backgroundColor = 'rgba(0,0,0,0.7)';
-        devNote.style.color = '#0ff';
-        devNote.style.fontSize = '10px';
-        devNote.style.padding = '4px 12px';
-        devNote.style.borderRadius = '20px';
-        devNote.style.fontFamily = 'monospace';
-        devNote.style.border = '1px solid #0ff';
-        devNote.style.zIndex = '999';
-        setTimeout(() => {
-            devNote.style.opacity = '0.6';
-        }, 3000);
+        buildProjects();
+        console.log("%c🛡️ GUNDAM 00 PORTFOLIO | 8 PROJETOS INDIVIDUAIS", "color: #4a9eff; font-size: 16px; font-family: monospace; font-weight: bold;");
+        console.log("%c⚡ GN Drive ativado. Setsuna F. Seiei, a caminho!", "color: #ffb233; font-size: 12px; font-family: monospace;");
     });
 </script>
 </body>
