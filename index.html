@@ -1,571 +1,160 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Gundam 00 Portfolio | EMI Projects</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+# 🌐 PORTFOLIO EMI – Projetos de Edições de Multimédia Interativas
 
-        body {
-            background: linear-gradient(145deg, #0a1628 0%, #0d1f3c 40%, #162d50 100%);
-            font-family: 'Orbitron', 'Share Tech Mono', monospace;
-            color: #e8f0fe;
-            overflow-x: hidden;
-            padding-bottom: 50px;
-            min-height: 100vh;
-        }
+Este repositório contém um portfólio interativo desenvolvido no âmbito da Unidade Curricular **Edições de Multimédia Interativas**. O portfólio apresenta **8 projetos individuais** organizados por áreas temáticas.
 
-        /* GN Particles effect */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 10% 20%, rgba(74, 158, 255, 0.15), transparent),
-                radial-gradient(2px 2px at 30% 60%, rgba(255, 178, 51, 0.10), transparent),
-                radial-gradient(3px 3px at 50% 10%, rgba(74, 158, 255, 0.08), transparent),
-                radial-gradient(2px 2px at 70% 80%, rgba(255, 178, 51, 0.12), transparent),
-                radial-gradient(3px 3px at 90% 40%, rgba(74, 158, 255, 0.06), transparent);
-            pointer-events: none;
-            z-index: 0;
-        }
+---
 
-        /* Cockpit grid */
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(74, 158, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(74, 158, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-            z-index: 0;
-        }
+## 🎯 Estrutura do Portfólio
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
+| # | Projeto | Área | Tecnologias |
+|---|---------|------|-------------|
+| 1 | Particle Storm | Coding Interativo | JavaScript, Canvas, WebGL |
+| 2 | Sound Painter | Coding Interativo | Web Audio API, Canvas, JavaScript |
+| 3 | Orbital Viewer 3D | Experiências 3D | Unity, WebGL, C# |
+| 4 | Camera Director | Experiências 3D | Unity, WebGL, Cinemachine |
+| 5 | GeoPulse | Dashboards | p5.js, JavaScript, API |
+| 6 | API Explorer | Dashboards | p5.js, JavaScript, JSONPlaceholder |
+| 7 | AR Animal Care | AR & VR | A-Frame, AR.js, JavaScript |
+| 8 | VR Gundam Hangar | AR & VR | A-Frame, Three.js, WebXR |
 
-        /* Header - GN Drive style */
-        .gundam-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid #4a9eff;
-            position: relative;
-        }
+---
 
-        .gundam-header::after {
-            content: "";
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ffb233, transparent);
-            border-radius: 2px;
-        }
+## 📁 Projetos por Área
 
-        .title-main {
-            font-size: 3rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            background: linear-gradient(135deg, #4a9eff 0%, #ffb233 50%, #4a9eff 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientShift 4s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(74, 158, 255, 0.2);
-        }
+### ⚡ Coding Interativo
 
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
+#### 1. Particle Storm
+| Campo | Descrição |
+|-------|-----------|
+| **Objetivo** | Simular um sistema de partículas com comportamento emergente e interação em tempo real. |
+| **Tecnologias** | JavaScript (Canvas/WebGL), HTML5, CSS3 |
+| **Funcionalidades** | - Geração de centenas de partículas com física básica <br>- Interação com rato/teclado <br>- Efeitos visuais neon e rastros luminosos |
+| **Acesso** | [Particle Storm Demo](https://pedrobabau.github.io/Coding_Interativo/projeto1/index.html) |
+| **Repositório** | [Coding_Interativo](https://github.com/PedroBabau/Coding_Interativo) |
 
-        .title-sub {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.9rem;
-            color: #8ab8ff;
-            letter-spacing: 3px;
-            margin-top: 10px;
-            display: inline-block;
-            background: rgba(74, 158, 255, 0.08);
-            padding: 6px 20px;
-            border-radius: 30px;
-            border: 1px solid rgba(74, 158, 255, 0.2);
-        }
+#### 2. Sound Painter
+| Campo | Descrição |
+|-------|-----------|
+| **Objetivo** | Pintar visualmente utilizando input de áudio (microfone ou ficheiros). |
+| **Tecnologias** | Web Audio API, Canvas, JavaScript |
+| **Funcionalidades** | - Análise de frequências em tempo real <br>- Mapeamento som → cor/intensidade <br>- Exportação de frames como imagem |
+| **Acesso** | [Sound Painter Demo](https://pedrobabau.github.io/Coding_Interativo/projeto2/index.html) |
+| **Repositório** | [Coding_Interativo](https://github.com/PedroBabau/Coding_Interativo) |
 
-        .title-sub i {
-            color: #ffb233;
-            margin: 0 6px;
-        }
+---
 
-        /* Stats bar */
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin: 1.5rem 0 2rem;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.75rem;
-            color: #6a9acf;
-        }
+### 🎮 Experiências 3D
 
-        .stats-bar span {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 4px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(74, 158, 255, 0.1);
-        }
+#### 3. Orbital Viewer 3D
+| Campo | Descrição |
+|-------|-----------|
+| **Objetivo** | Visualizador 3D interativo com câmera orbital controlada por Slider UI. |
+| **Tecnologias** | Unity, WebGL, C# |
+| **Funcionalidades** | - Movimento orbital sobre a nave <br>- Controlo de câmara com slider <br>- Interface com informações da posição da câmera |
+| **Acesso** | [itch.io – Projeto A](https://pedrobpinheiro.itch.io/projeto-a-visualizador-orbital-3d) |
+| **Repositório** | [Projeto_2_Experiencias_3D_Interativas_Unity](https://github.com/PedroBabau/Projeto_2_Experiencias_3D_Interativas_Unity) |
 
-        .stats-bar .num {
-            color: #ffb233;
-            font-weight: bold;
-            font-size: 1rem;
-        }
+#### 4. Camera Director
+| Campo | Descrição |
+|-------|-----------|
+| **Objetivo** | Sistema de 4 câmeras cinematográficas com toggles e animação. |
+| **Tecnologias** | Unity, WebGL, Cinemachine |
+| **Funcionalidades** | - 4 planos de câmara (Close-Up, Americano, Geral, Sobre Ombro) <br>- UI Toggles para troca de câmeras <br>- Personagem animado com Mixamo |
+| **Acesso** | [itch.io – Projeto B](https://pedrobpinheiro.itch.io/projeto-b-realizador-de-cinema) |
+| **Repositório** | [Projeto_2_Experiencias_3D_Interativas_Unity](https://github.com/PedroBabau/Projeto_2_Experiencias_3D_Interativas_Unity) |
 
-        /* Grid de projetos - 4 colunas */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin: 2rem 0;
-        }
+---
 
-        /* Cada projeto - estilo Gundam Unit */
-        .project-card {
-            background: rgba(13, 31, 60, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 1.5rem;
-            border: 1px solid rgba(74, 158, 255, 0.15);
-            transition: all 0.35s ease;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
+### 📊 Dashboards
 
-        .project-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #4a9eff, #ffb233, #4a9eff, transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+#### 5. GeoPulse
+| Campo | Descrição |
+|-------|-----------|
+| **Objetivo** | Visualização artística baseada na localização geográfica real. Globo 3D interativo. |
+| **Tecnologias** | p5.js, JavaScript, HTML/CSS |
+| **Funcionalidades** | - Geolocalização via ipapi.co <br>- Globo 3D com partículas <br>- Informações: país, cidade, IP, coordenadas, fuso horário |
+| **Acesso** | [GeoPulse Demo](https://pedrobabau.github.io/MyDashboards/dashboard1/) |
+| **Repositório** | [MyDashboards](https://github.com/PedroBabau/MyDashboards) |
 
-        .project-card:hover::before {
-            opacity: 1;
-        }
+#### 6. API Explorer
+| Campo | Descrição |
+|-------|-----------|
+| **Objetivo** | Explore dados de uma API gratuita (JSONPlaceholder). Avatar interativo. |
+| **Tecnologias** | p5.js, JavaScript, HTML/CSS |
+| **Funcionalidades** | - Carregar utilizadores aleatórios <br>- Avatar com cor e tamanho ajustáveis <br>- Informação detalhada do utilizador |
+| **Acesso** | [API Explorer Demo](https://pedrobabau.github.io/MyDashboards/dashboard2/) |
+| **Repositório** | [MyDashboards](https://github.com/PedroBabau/MyDashboards) |
 
-        .project-card:hover {
-            border-color: #ffb233;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(74, 158, 255, 0.12);
-        }
+---
 
-        /* Ícone do projeto */
-        .project-icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.8rem;
-        }
+### 🥽 AR & VR
 
-        .project-tag {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.6rem;
-            color: #8ab8ff;
-            letter-spacing: 2px;
-            background: rgba(74, 158, 255, 0.08);
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 20px;
-            margin-bottom: 10px;
-            border: 1px solid rgba(74, 158, 255, 0.1);
-            text-transform: uppercase;
-        }
+#### 7. AR Animal Care
+| Campo | Descrição |
+|-------|-----------|
+| **Objetivo** | Experiência de Realidade Aumentada baseada em marcador personalizado. Gato 3D interativo. |
+| **Tecnologias** | A-Frame, AR.js, JavaScript, HTML5 |
+| **Funcionalidades** | - Marcadores BARCODE e HIRO com download <br>- Gato 3D com animações (flutuação, rabo, orelhas) <br>- Interação com comida/água com feedback visual |
+| **Acesso** | [AR Animal Care Demo](https://pedrobabau.github.io/ProjetoARVR/AR/index.html) |
+| **Repositório** | [ProjetoARVR](https://github.com/PedroBabau/ProjetoARVR) |
 
-        .project-tag .accent {
-            color: #ffb233;
-        }
+#### 8. VR Gundam Hangar
+| Campo | Descrição |
+|-------|-----------|
+| **Objetivo** | Experiência de Realidade Virtual imersiva com cenários 360° e navegação por olhar (gaze). |
+| **Tecnologias** | A-Frame, Three.js, WebXR, JavaScript |
+| **Funcionalidades** | - 3 cenários 360° (Hangar, Colónia, Batalha) <br>- Navegação por gaze com fusing de 1.5s <br>- Modelo Gundam 3D com animações |
+| **Acesso** | [VR Gundam Hangar Demo](https://pedrobabau.github.io/ProjetoARVR/VR/index.html) |
+| **Repositório** | [ProjetoARVR](https://github.com/PedroBabau/ProjetoARVR) |
 
-        .project-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #e8f0fe;
-            margin-bottom: 0.6rem;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-        }
+---
 
-        .project-desc {
-            font-family: 'Share Tech Mono', monospace;
-            color: #8ab8ff;
-            font-size: 0.78rem;
-            line-height: 1.5;
-            margin-bottom: 1.2rem;
-            flex: 1;
-        }
+## 🎨 Interface Gundam 00 – Funcionalidades Técnicas
 
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1.2rem;
-        }
+| Elemento | Descrição |
+|----------|-----------|
+| **Cores** | Azul GN (#4a9eff), Laranja (#ffb233), Branco metálico, Azul escuro |
+| **Efeito GN Particles** | Partículas de fundo com animação suave |
+| **Grid Cockpit** | Linhas de fundo estilo painel de controlo |
+| **Header Animado** | Gradiente com animação de deslocamento |
+| **Cards** | Efeito glassmorphism com bordas azuis/laranja |
+| **Botões** | Estilo transparente com hover em azul GN |
+| **Grid Responsivo** | 4 colunas (desktop) → 2 colunas (tablet) → 1 coluna (mobile) |
+| **Stats Bar** | Contador de projetos, tecnologias, repositórios e áreas |
 
-        .tech-badge {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.55rem;
-            padding: 2px 10px;
-            border-radius: 15px;
-            background: rgba(74, 158, 255, 0.06);
-            border: 1px solid rgba(74, 158, 255, 0.1);
-            color: #6a9acf;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+---
 
-        .tech-badge.gold {
-            border-color: rgba(255, 178, 51, 0.2);
-            color: #ffb233;
-        }
+## 📦 Tecnologias Utilizadas
 
-        .btn-project {
-            background: transparent;
-            border: 1.5px solid rgba(74, 158, 255, 0.3);
-            color: #8ab8ff;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-family: 'Orbitron', monospace;
-            font-weight: 500;
-            font-size: 0.6rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            width: 100%;
-            justify-content: center;
-        }
+| Tecnologia | Utilização |
+|------------|------------|
+| HTML5 | Estrutura do portfólio |
+| CSS3 | Estilização e animações |
+| JavaScript | Geração dinâmica de conteúdo e interações |
+| Font Awesome | Ícones |
+| Google Fonts | Orbitron e Share Tech Mono |
+| GitHub Pages | Hospedagem do portfólio |
+| Itch.io | Hospedagem dos jogos Unity WebGL |
 
-        .btn-project i {
-            font-size: 0.8rem;
-        }
+---
 
-        .btn-project:hover {
-            background: rgba(74, 158, 255, 0.12);
-            border-color: #4a9eff;
-            color: #e8f0fe;
-            box-shadow: 0 0 20px rgba(74, 158, 255, 0.08);
-        }
+## 👤 Autor
 
-        .btn-project.primary {
-            border-color: #ffb233;
-            color: #ffb233;
-        }
+**PedroBPinheiro**  
+GitHub: [PedroBabau](https://github.com/PedroBabau)  
+itch.io: [PedroBPinheiro](https://pedrobpinheiro.itch.io/)
 
-        .btn-project.primary:hover {
-            background: rgba(255, 178, 51, 0.1);
-            border-color: #ffb233;
-            color: #ffb233;
-            box-shadow: 0 0 20px rgba(255, 178, 51, 0.08);
-        }
+---
 
-        .btn-project.repo-btn {
-            border-color: rgba(255, 255, 255, 0.1);
-            color: #6a9acf;
-            font-size: 0.55rem;
-        }
+## 📄 Licença
 
-        .btn-project.repo-btn:hover {
-            border-color: #4a9eff;
-            color: #8ab8ff;
-        }
+Projeto desenvolvido para a disciplina de **Edições de Multimédia Interativas**.
 
-        /* Rodapé */
-        .footer-gundam {
-            margin-top: 3rem;
-            text-align: center;
-            font-size: 0.7rem;
-            color: #4a7a9f;
-            border-top: 1px solid rgba(74, 158, 255, 0.1);
-            padding-top: 2rem;
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 1px;
-        }
+---
 
-        .footer-gundam i {
-            color: #ffb233;
-        }
+### ✅ Notas Finais
 
-        .footer-gundam .gn-particle {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: radial-gradient(circle, #4a9eff, transparent);
-            border-radius: 50%;
-            margin: 0 6px;
-            animation: pulseParticle 2s ease-in-out infinite;
-        }
-
-        @keyframes pulseParticle {
-            0%, 100% { opacity: 0.3; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* Responsividade */
-        @media (max-width: 1024px) {
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .title-main { font-size: 2rem; letter-spacing: 3px; }
-            .container { padding: 1rem; }
-            .projects-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-            .project-card { padding: 1.2rem; }
-            .project-name { font-size: 1.1rem; }
-            .stats-bar { gap: 0.8rem; font-size: 0.65rem; }
-            .stats-bar span { padding: 2px 10px; }
-        }
-
-        @media (max-width: 480px) {
-            .title-main { font-size: 1.4rem; letter-spacing: 2px; }
-            .title-sub { font-size: 0.6rem; padding: 4px 12px; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .project-card { padding: 1rem; }
-            .stats-bar { flex-direction: column; align-items: center; gap: 0.4rem; }
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-    <!-- Header Gundam 00 -->
-    <div class="gundam-header">
-        <div class="title-main">PORTFOLIO EMI</div>
-        <div class="title-sub">
-            <i class="fas fa-cog fa-spin"></i> 
-            PROJETOS INDIVIDUAIS • GN DRIVE 
-            <i class="fas fa-cog fa-spin"></i>
-        </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats-bar">
-        <span><span class="num">8</span> PROJETOS</span>
-        <span><span class="num">7</span> TECNOLOGIAS</span>
-        <span><span class="num">4</span> REPOSITÓRIOS</span>
-        <span><span class="num">4</span> ÁREAS</span>
-    </div>
-
-    <div class="projects-grid" id="projectsContainer">
-        <!-- Os projetos serão injetados via JS -->
-    </div>
-
-    <div class="footer-gundam">
-        <span class="gn-particle"></span>
-        <i class="fas fa-code-branch"></i> Projetos desenvolvidos no âmbito da UC Edições de Multimédia Interativas 
-        <span class="gn-particle"></span>
-        <br>
-    </div>
-</div>
-
-<script>    
-    const projectsData = [
-        // Par 1 - Coding Interativo
-        {
-            id: 1,
-            nome: "Particle Storm",
-            descricao: "Simulação de sistema de partículas com comportamento emergente e interação em tempo real.",
-            icon: "🌩️",
-            tag: "Coding Interativo",
-            tech: ["JavaScript", "Canvas", "WebGL"],
-            repoUrl: "https://github.com/PedroBabau/Coding_Interativo",
-            projectPageUrl: "https://pedrobabau.github.io/Coding_Interativo/projeto1/index.html"
-        },
-        {
-            id: 2,
-            nome: "Sound Painter",
-            descricao: "Pintura visual interativa utilizando input de áudio (microfone ou ficheiros).",
-            icon: "🎵",
-            tag: "Coding Interativo",
-            tech: ["Web Audio API", "Canvas", "JavaScript"],
-            repoUrl: "https://github.com/PedroBabau/Coding_Interativo",
-            projectPageUrl: "https://pedrobabau.github.io/Coding_Interativo/projeto2/index.html"
-        },
-        // Par 2 - Experiências 3D
-        {
-            id: 3,
-            nome: "Orbital Viewer 3D",
-            descricao: "Visualizador com câmera orbital controlada por Slider UI. Aproxima e afasta a câmara em torno do objeto 3D.",
-            icon: "🚀",
-            tag: "Experiências 3D",
-            tech: ["Unity", "WebGL", "C#"],
-            repoUrl: "https://github.com/PedroBabau/Projeto_2_Experiencias_3D_Interativas_Unity",
-            projectPageUrl: "https://itch.io/embed-upload/18061663?color=333333"
-        },
-        {
-            id: 4,
-            nome: "Camera Director",
-            descricao: "Sistema de 4 câmeras cinematográficas com toggles, animação e personagem Mixamo.",
-            icon: "🎬",
-            tag: "Experiências 3D",
-            tech: ["Unity", "WebGL", "Cinemachine"],
-            repoUrl: "https://github.com/PedroBabau/Projeto_2_Experiencias_3D_Interativas_Unity",
-            projectPageUrl: "https://itch.io/embed-upload/18061855?color=333333"
-        },
-        // Par 3 - Dashboards
-        {
-            id: 5,
-            nome: "GeoPulse",
-            descricao: "Globo 3D interativo com localização geográfica em tempo real (país, cidade, IP, coordenadas).",
-            icon: "🌍",
-            tag: "Dashboards",
-            tech: ["p5.js", "JavaScript", "API"],
-            repoUrl: "https://github.com/PedroBabau/MyDashboards",
-            projectPageUrl: "https://pedrobabau.github.io/MyDashboards/dashboard1/"
-        },
-        {
-            id: 6,
-            nome: "API Explorer",
-            descricao: "Explorador de dados com avatar interativo, personalização visual e carregamento aleatório.",
-            icon: "🔌",
-            tag: "Dashboards",
-            tech: ["p5.js", "JavaScript", "JSONPlaceholder"],
-            repoUrl: "https://github.com/PedroBabau/MyDashboards",
-            projectPageUrl: "https://pedrobabau.github.io/MyDashboards/dashboard2/"
-        },
-        // Par 4 - AR & VR
-        {
-            id: 7,
-            nome: "AR Animal Care",
-            descricao: "Cuide de um gato 3D com Realidade Aumentada (marcadores BARCODE e HIRO com download).",
-            icon: "🐾",
-            tag: "AR & VR",
-            tech: ["A-Frame", "AR.js", "JavaScript"],
-            repoUrl: "https://github.com/PedroBabau/ProjetoARVR",
-            projectPageUrl: "https://pedrobabau.github.io/ProjetoARVR/AR/index.html"
-        },
-        {
-            id: 8,
-            nome: "VR Gundam Hangar",
-            descricao: "Explore cenários 360° com navegação por olhar (gaze) e modelo Gundam 3D animado.",
-            icon: "🤖",
-            tag: "AR & VR",
-            tech: ["A-Frame", "Three.js", "WebXR"],
-            repoUrl: "https://github.com/PedroBabau/ProjetoARVR",
-            projectPageUrl: "https://pedrobabau.github.io/ProjetoARVR/VR/index.html"
-        }
-    ];
-
-    function openLink(url, labelForError = "link") {
-        if (!url || url === "#" || url === "") {
-            alert(`⚠️ ${labelForError} não configurado. Substitua pelos URLs reais no código JavaScript.`);
-            return;
-        }
-        window.open(url, "_blank", "noopener,noreferrer");
-    }
-
-    function escapeHtml(str) {
-        if (!str) return "";
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-
-    function buildProjects() {
-        const container = document.getElementById("projectsContainer");
-        if (!container) return;
-
-        let html = "";
-        projectsData.forEach((proj) => {
-            // Gerar badges de tecnologia
-            let techHtml = proj.tech.map(t => 
-                `<span class="tech-badge">${escapeHtml(t)}</span>`
-            ).join('');
-
-            html += `
-                <div class="project-card" data-id="${proj.id}">
-                    <div class="project-icon">${proj.icon}</div>
-                    <div class="project-tag">
-                        <span class="accent">✦</span> ${escapeHtml(proj.tag)}
-                    </div>
-                    <div class="project-name">${escapeHtml(proj.nome)}</div>
-                    <div class="project-desc">${escapeHtml(proj.descricao)}</div>
-                    <div class="project-tech">${techHtml}</div>
-                    <button class="btn-project primary project-page-btn" data-project-url="${escapeHtml(proj.projectPageUrl)}" data-proj-name="${escapeHtml(proj.nome)}">
-                        <i class="fas fa-external-link-alt"></i> PÁGINA DO PROJETO
-                    </button>
-                    <button class="btn-project repo-btn repo-btn-individual" data-repo-url="${escapeHtml(proj.repoUrl)}" style="margin-top:6px;">
-                        <i class="fab fa-github"></i> REPOSITÓRIO
-                    </button>
-                </div>
-            `;
-        });
-        
-        container.innerHTML = html;
-        
-        // Event listeners para botões de página do projeto
-        document.querySelectorAll(".project-page-btn").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                const projectUrl = btn.getAttribute("data-project-url");
-                const projectName = btn.getAttribute("data-proj-name") || "projeto";
-                openLink(projectUrl, `página do projeto ${projectName}`);
-            });
-        });
-
-        // Event listeners para botões de repositório
-        document.querySelectorAll(".repo-btn-individual").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                const repoUrl = btn.getAttribute("data-repo-url");
-                openLink(repoUrl, "repositório");
-            });
-        });
-    }
-    
-    window.addEventListener("DOMContentLoaded", () => {
-        buildProjects();
-        console.log("%c🛡️ GUNDAM 00 PORTFOLIO | 8 PROJETOS INDIVIDUAIS", "color: #4a9eff; font-size: 16px; font-family: monospace; font-weight: bold;");
-        console.log("%c⚡ GN Drive ativado. Setsuna F. Seiei, a caminho!", "color: #ffb233; font-size: 12px; font-family: monospace;");
-    });
-</script>
-</body>
-</html>
+- O portfólio apresenta **8 projetos individuais** organizados por áreas temáticas.
+- Cada projeto tem um link direto para a sua demonstração e para o repositório.
+- A interface foi inspirada nos visuais da série **Gundam 00** (GN Drives, cores e estética tecnológica).
+- O código JavaScript gera dinamicamente os cards, facilitando a manutenção e atualização dos links.
